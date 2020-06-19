@@ -8,6 +8,8 @@ namespace bigschool.Models
 {
     public class Course
     {
+       
+        public bool IsCanceled { get; set; }
         public int id { get; set; }
         public ApplicationUser Lectuter { get; set; }
         [Required]

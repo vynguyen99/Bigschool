@@ -8,6 +8,7 @@ using System.Web;
 namespace bigschool.ViewModels
 {
     public class CourseViewModel
+        
     {   [Required]
         public string Place { get; set; }
         [Required]
@@ -25,6 +26,12 @@ namespace bigschool.ViewModels
         }
         public IEnumerable<Course> UpcommingCourses { get; set; }
         public bool ShowAction { get; set; }
+        public int Id { get; set; }
+        public string Heading { get; set; }
+    public string Action
+    {
+        get { return (Id != 0) ? "Update" : "Create"; }
+    }
 
     }
 }
