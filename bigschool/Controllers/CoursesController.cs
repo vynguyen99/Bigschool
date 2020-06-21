@@ -83,9 +83,31 @@ namespace bigschool.Controllers
             return View("Create", viewModel);
         }
 
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+
+        //public ActionResult Create(CourseViewModel viewModel)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        viewModel.Categories = _dbContext.Categories.ToList();
+        //        return View("Create", viewModel);
+        //    }
+        //    var course = new Course
+        //    {
+        //        LectuterId = User.Identity.GetUserId(),
+        //        DateTime = viewModel.GetDateTime(),
+        //        Categoryid = viewModel.Category,
+        //        Place = viewModel.Place
+        //    };
+        //    _dbContext.Course.Add(course);
+        //    _dbContext.SaveChanges();
+        //    return RedirectToAction("Index", "Home");
+
+        //}
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-
         public ActionResult Create(CourseViewModel viewModel)
         {
             if (!ModelState.IsValid)
@@ -103,7 +125,6 @@ namespace bigschool.Controllers
             _dbContext.Course.Add(course);
             _dbContext.SaveChanges();
             return RedirectToAction("Index", "Home");
-
         }
         [Authorize]
         [HttpPost]
